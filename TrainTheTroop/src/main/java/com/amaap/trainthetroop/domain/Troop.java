@@ -1,21 +1,21 @@
-package com.amaap.trainthetroop;
+package com.amaap.trainthetroop.domain;
 
 import java.util.Objects;
 
 public class Troop {
-    private String troopType;
+    private TroopType troopType;
     private int trainingTime;
     private int trainingCost;
     private String weapon;
 
-    private Troop(String troopType, int trainingTime, int trainingCost, String weapon) {
+    private Troop(TroopType troopType, int trainingTime, int trainingCost, String weapon) {
         this.troopType = troopType;
         this.trainingTime = trainingTime;
         this.trainingCost = trainingCost;
         this.weapon = weapon;
     }
 
-    public static Troop create(String troopType, int trainingTime, int trainingCost, String weapon) {
+    public static Troop create(TroopType troopType, int trainingTime, int trainingCost, String weapon) {
         return new Troop(troopType,trainingTime,trainingCost,weapon);
     }
 

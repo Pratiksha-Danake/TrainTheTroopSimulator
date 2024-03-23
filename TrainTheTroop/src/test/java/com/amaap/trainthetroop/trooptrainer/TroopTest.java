@@ -1,6 +1,7 @@
-package com.amaap.trooptrainer;
+package com.amaap.trainthetroop.trooptrainer;
 
-import com.amaap.trainthetroop.Troop;
+import com.amaap.trainthetroop.domain.Troop;
+import com.amaap.trainthetroop.domain.TroopType;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -8,13 +9,14 @@ public class TroopTest {
     @Test
     void shouldAbleToCreateTroopWithGivenDetails() {
         //Arrange
-        String troopType = "Archer";
+        TroopType troopType = TroopType.ARCHER;
         String weapon = "Bow and Arrow";
         int trainingTime = 3;
         int trainingCost = 10;
         Troop expectedTroop = Troop.create(troopType, trainingTime, trainingCost, weapon);
         //Act
         Troop actualTroop = Troop.create(troopType, trainingTime, trainingCost, weapon);
+        //Assert
         Assertions.assertEquals(expectedTroop, actualTroop);
     }
 }
