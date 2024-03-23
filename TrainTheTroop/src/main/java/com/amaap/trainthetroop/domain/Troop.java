@@ -1,5 +1,8 @@
 package com.amaap.trainthetroop.domain;
 
+import com.amaap.trainthetroop.exceptions.InvalidTroopTypeException;
+import com.amaap.trainthetroop.validators.TroopDataValidator;
+
 import java.util.Objects;
 
 public class Troop {
@@ -15,8 +18,10 @@ public class Troop {
         this.weapon = weapon;
     }
 
-    public static Troop create(TroopType troopType, int trainingTime, int trainingCost, String weapon) {
-        return new Troop(troopType,trainingTime,trainingCost,weapon);
+    public static Troop create(TroopType troopType, int trainingTime, int trainingCost, String weapon) throws InvalidTroopTypeException {
+        if (!TroopDataValidator.isValidTroopType(troopType))
+            throw new InvalidTroopTypeException("Invalid troop type");
+        return new Troop(troopType, trainingTime, trainingCost, weapon);
     }
 
     @Override
