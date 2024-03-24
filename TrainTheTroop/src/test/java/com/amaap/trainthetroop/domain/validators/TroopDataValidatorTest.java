@@ -1,8 +1,7 @@
-package com.amaap.trainthetroop.validators.test;
+package com.amaap.trainthetroop.domain.validators;
 
 import com.amaap.trainthetroop.domain.TroopType;
-import com.amaap.trainthetroop.exceptions.InvalidTroopTypeException;
-import com.amaap.trainthetroop.validators.TroopDataValidator;
+import com.amaap.trainthetroop.domain.exceptions.InvalidTroopTypeException;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -16,7 +15,7 @@ public class TroopDataValidatorTest {
     }
 
     @Test
-    void shouldAbleToThrowExceptionNullTroopTypeExceptionWhenTroopTypeIsNull() {
+    void shouldAbleToThrowInvalidTroopTypeExceptionWhenTroopTypeIsNull() {
         //Arrange
         TroopType troopTypeToValidate = null;
         //Act and Assert

@@ -1,7 +1,7 @@
 package com.amaap.trainthetroop.domain;
 
-import com.amaap.trainthetroop.exceptions.InvalidTroopTypeException;
-import com.amaap.trainthetroop.validators.TroopDataValidator;
+import com.amaap.trainthetroop.domain.exceptions.InvalidTroopTypeException;
+import com.amaap.trainthetroop.domain.validators.TroopDataValidator;
 
 import java.util.Objects;
 

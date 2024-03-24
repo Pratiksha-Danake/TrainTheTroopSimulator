@@ -1,7 +1,7 @@
-package com.amaap.trainthetroop.validators;
+package com.amaap.trainthetroop.domain.validators;
 
 import com.amaap.trainthetroop.domain.TroopType;
-import com.amaap.trainthetroop.exceptions.InvalidTroopTypeException;
+import com.amaap.trainthetroop.domain.exceptions.InvalidTroopTypeException;
 
 public class TroopDataValidator {
     public static boolean isValidTroopType(TroopType troopType) throws InvalidTroopTypeException {

@@ -1,8 +1,8 @@
-package com.amaap.trainthetroop.domain.test;
+package com.amaap.trainthetroop.domain;
 
 import com.amaap.trainthetroop.domain.Troop;
 import com.amaap.trainthetroop.domain.TroopType;
-import com.amaap.trainthetroop.exceptions.InvalidTroopTypeException;
+import com.amaap.trainthetroop.domain.exceptions.InvalidTroopTypeException;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
