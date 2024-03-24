@@ -1,5 +1,7 @@
 package com.amaap.trainthetroop.domain;
 
+import com.amaap.trainthetroop.domain.exceptions.BarracksFullException;
+
 public class Barracks {
     private final int maxCapacity;
     private int noOfArchers;
@@ -23,11 +25,13 @@ public class Barracks {
         return noOfBarbarians;
     }
 
-    public void trainTheTroop(int noOfArchersToTrain, int noOfBarbarianToTrain) {
-        if (this.noOfArchers + noOfArchersToTrain +
-                this.noOfBarbarians + noOfArchersToTrain <= this.maxCapacity) {
+    public void trainTheTroop(int noOfArchersToTrain, int noOfBarbarianToTrain) throws BarracksFullException {
+        int troopsInTraining = this.noOfArchers + noOfArchersToTrain + this.noOfBarbarians + noOfBarbarianToTrain;
+        if (troopsInTraining <= this.maxCapacity) {
             this.noOfArchers += noOfArchersToTrain;
             this.noOfBarbarians += noOfBarbarianToTrain;
+        } else {
+            throw new BarracksFullException("Barracks is full. Some troops have to wait for some time");
         }
     }
 }
