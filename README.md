@@ -15,7 +15,10 @@
     - public void trainTheTroop()
 ##### NOTE : we can train only one troop at a time
 
-#### class ArmyCamp (DTO)
+#### class ArmyCamp
   - state
     - private List<Trooper> trainedTrooper
+  - Behaviour
+    - public void addTroop()
+    - public showTroopCount()
 
