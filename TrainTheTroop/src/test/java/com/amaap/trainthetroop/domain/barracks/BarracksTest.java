@@ -1,6 +1,7 @@
-package com.amaap.trainthetroop.domain;
+package com.amaap.trainthetroop.domain.barracks;
 
-import com.amaap.trainthetroop.domain.exceptions.BarracksFullException;
+import com.amaap.trainthetroop.domain.barracks.model.Barracks;
+import com.amaap.trainthetroop.domain.troop.exceptions.BarracksFullException;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

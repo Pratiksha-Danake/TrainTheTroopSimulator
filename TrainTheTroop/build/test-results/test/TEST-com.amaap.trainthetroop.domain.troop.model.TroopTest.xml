@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.amaap.trainthetroop.domain.troop.model.TroopTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2024-03-24T16:56:32" hostname="DESKTOP-GUO1275" time="0.035">
+  <properties/>
+  <testcase name="shouldAbleToThrowInvalidTroopTypeExceptionWhenTroopTypeIsOtherThanArcherAndBarbarian()" classname="com.amaap.trainthetroop.domain.troop.model.TroopTest" time="0.025"/>
+  <testcase name="shouldAbleToThrowInvalidTroopTypeExceptionWhenTroopTypeIsNull()" classname="com.amaap.trainthetroop.domain.troop.model.TroopTest" time="0.002"/>
+  <testcase name="shouldAbleToCreateTroopWithGivenDetails()" classname="com.amaap.trainthetroop.domain.troop.model.TroopTest" time="0.002"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
