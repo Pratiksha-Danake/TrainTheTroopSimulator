@@ -2,22 +2,24 @@ package com.amaap.trainthetroop.domain.model.entity;
 
 import com.amaap.trainthetroop.domain.model.entity.exception.InvalidTrainingCostException;
 import com.amaap.trainthetroop.domain.model.entity.exception.InvalidTrainingTimeException;
+import com.amaap.trainthetroop.domain.model.entity.exception.InvalidTrooperWeaponException;
 
 import java.util.Objects;
 
-import static com.amaap.trainthetroop.domain.model.entity.TroopDataValidator.isInValidTime;
-import static com.amaap.trainthetroop.domain.model.entity.TroopDataValidator.isInvalidTrainingCost;
+import static com.amaap.trainthetroop.domain.model.entity.TroopDataValidator.*;
 
 public class Trooper {
     int trainingTime;
     int trainingCost;
     String weapon;
 
-    public Trooper(int trainingTime, int trainingCost, String weapon) throws InvalidTrainingTimeException, InvalidTrainingCostException {
+    public Trooper(int trainingTime, int trainingCost, String weapon) throws InvalidTrainingTimeException, InvalidTrainingCostException, InvalidTrooperWeaponException {
         if (isInValidTime(trainingTime))
-            throw new InvalidTrainingTimeException("Time Cannot Be Zero Or Less" + trainingTime);
+            throw new InvalidTrainingTimeException("Time Cannot Be Zero or Less" + trainingTime);
         if (isInvalidTrainingCost(trainingCost))
-            throw new InvalidTrainingCostException("Cost Cannot Be Zero Or Less" + trainingCost);
+            throw new InvalidTrainingCostException("Cost Cannot Be Zero or Less" + trainingCost);
+        if (isInValidWeapon(weapon))
+            throw new InvalidTrooperWeaponException("Weapon Cannot Be Null or empty");
         this.trainingTime = trainingTime;
         this.trainingCost = trainingCost;
         this.weapon = weapon;

@@ -2,6 +2,7 @@ package com.amaap.trainthetroop.domain.model.entity;
 
 import com.amaap.trainthetroop.domain.model.entity.exception.InvalidTrainingCostException;
 import com.amaap.trainthetroop.domain.model.entity.exception.InvalidTrainingTimeException;
+import com.amaap.trainthetroop.domain.model.entity.exception.InvalidTrooperWeaponException;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -9,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class TrooperTest {
     @Test
-    void shouldBeAbleToCreateTheTrooperOfTypeArcher() throws InvalidTrainingTimeException, InvalidTrainingCostException {
+    void shouldBeAbleToCreateTheTrooperOfTypeArcher() throws InvalidTrainingTimeException, InvalidTrainingCostException, InvalidTrooperWeaponException {
         // arrange
         int trainingTime = 6;
         int trainingCost = 20;
@@ -45,6 +46,32 @@ public class TrooperTest {
 
         // act && assert
         assertThrows(InvalidTrainingCostException.class, () -> {
+            Trooper trooper = new Archer(trainingTime, trainingCost, weapon);
+        });
+    }
+
+    @Test
+    void shouldThrowInvalidTrooperWeaponExceptionIfTrooperWeaponIsNull() {
+        // arrange
+        int trainingTime = 6;
+        int trainingCost = 20;
+        String weapon = null;
+
+        // act && assert
+        assertThrows(InvalidTrooperWeaponException.class, () -> {
+            Trooper trooper = new Archer(trainingTime, trainingCost, weapon);
+        });
+    }
+
+    @Test
+    void shouldThrowInvalidTrooperWeaponExceptionIfTrooperWeaponIsEmpty() {
+        // arrange
+        int trainingTime = 6;
+        int trainingCost = 20;
+        String weapon = "";
+
+        // act && assert
+        assertThrows(InvalidTrooperWeaponException.class, () -> {
             Trooper trooper = new Archer(trainingTime, trainingCost, weapon);
         });
     }

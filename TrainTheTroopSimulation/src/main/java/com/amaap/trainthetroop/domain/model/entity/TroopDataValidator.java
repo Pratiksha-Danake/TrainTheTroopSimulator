@@ -12,4 +12,10 @@ public class TroopDataValidator {
             return true;
         return false;
     }
+
+    static boolean isInValidWeapon(String weapon) {
+        if (weapon == null || weapon.isBlank())
+            return true;
+        return false;
+    }
 }
