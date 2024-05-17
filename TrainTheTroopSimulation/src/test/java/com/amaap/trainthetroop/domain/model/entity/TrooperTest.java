@@ -25,6 +25,21 @@ public class TrooperTest {
     }
 
     @Test
+    void shouldBeAbleToCreateTheTrooperOfTypeBarbarian() throws InvalidTrainingTimeException, InvalidTrainingCostException, InvalidTrooperWeaponException {
+        // arrange
+        int trainingTime = 6;
+        int trainingCost = 20;
+        String weapon = "Bow and Arrow";
+        Trooper expected = new Barbarian(trainingTime, trainingCost, weapon);
+
+        // act
+        Trooper actual = new Barbarian(trainingTime, trainingCost, weapon);
+
+        // assert
+        assertEquals(expected, actual);
+    }
+
+    @Test
     void shouldThrowInvalidTrainingTimeExceptionIfTrainingTimeIsNotValid() {
         // arrange
         int trainingTime = 0;
