@@ -1,17 +1,24 @@
 package com.amaap.trainthetroop.domain.model.entity;
 
+import com.amaap.trainthetroop.domain.model.entity.exception.InvalidTrainingTimeException;
+
 import java.util.Objects;
+
+import static com.amaap.trainthetroop.domain.model.entity.TroopDataValidator.isInValidTime;
 
 public class Trooper {
     int trainingTime;
     int trainingCost;
     String weapon;
 
-    public Trooper(int trainingTime, int trainingCost, String weapon) {
+    public Trooper(int trainingTime, int trainingCost, String weapon) throws InvalidTrainingTimeException {
+        if (isInValidTime(trainingTime))
+            throw new InvalidTrainingTimeException("Time Cannot Be Zero Or Less" + trainingTime);
         this.trainingTime = trainingTime;
         this.trainingCost = trainingCost;
         this.weapon = weapon;
     }
+
 
     @Override
     public boolean equals(Object o) {

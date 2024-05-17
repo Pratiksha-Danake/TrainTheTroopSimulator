@@ -1,12 +1,14 @@
 package com.amaap.trainthetroop.domain.model.entity;
 
+import com.amaap.trainthetroop.domain.model.entity.exception.InvalidTrainingTimeException;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class TrooperTest {
     @Test
-    void shouldBeAbleToCreateTheTrooperOfTypeArcher() {
+    void shouldBeAbleToCreateTheTrooperOfTypeArcher() throws InvalidTrainingTimeException {
         // arrange
         int trainingTime = 6;
         int trainingCost = 20;
@@ -18,5 +20,18 @@ public class TrooperTest {
 
         // assert
         assertEquals(expected, actual);
+    }
+
+    @Test
+    void shouldThrowInvalidTrainingTimeExceptionIfTrainingTimeIsNotValid(){
+        // arrange
+        int trainingTime = 0;
+        int trainingCost = 20;
+        String weapon = "Bow and Arrow";
+
+        // act && assert
+        assertThrows(InvalidTrainingTimeException.class,()->{
+            Trooper trooper = new Archer(trainingTime, trainingCost, weapon);
+        });
     }
 }
