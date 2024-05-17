@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.amaap.trainthetroop.repository.impl.InMemoryTrooperRepositoryTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-05-17T09:13:19" hostname="DESKTOP-GUO1275" time="0.231">
+  <properties/>
+  <testcase name="shouldBeAbleToAddTrooperTODatabase()" classname="com.amaap.trainthetroop.repository.impl.InMemoryTrooperRepositoryTest" time="0.231"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

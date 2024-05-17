@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.amaap.trainthetroop.controller.TrooperControllerTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2024-05-17T08:39:23" hostname="DESKTOP-GUO1275" time="0.521">
-  <properties/>
-  <testcase name="shouldBeAbleToReturnResponseAsOkIfCreatesTrooperSuccessfully()" classname="com.amaap.trainthetroop.controller.TrooperControllerTest" time="0.501"/>
-  <testcase name="shouldBeAbleToReturnResponseAsBadRequestIfFailToCreateTrooperSuccessfully()" classname="com.amaap.trainthetroop.controller.TrooperControllerTest" time="0.015"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>
