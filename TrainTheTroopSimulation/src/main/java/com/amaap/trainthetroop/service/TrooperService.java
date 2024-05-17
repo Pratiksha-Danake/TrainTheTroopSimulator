@@ -11,8 +11,10 @@ import com.amaap.trainthetroop.repository.TrooperRepository;
 import com.amaap.trainthetroop.service.exception.InvalidTroopTypeException;
 import com.google.inject.Inject;
 
+import java.util.List;
+
 public class TrooperService {
-    private TrooperRepository trooperRepository;
+    private final TrooperRepository trooperRepository;
 
     @Inject
     public TrooperService(TrooperRepository trooperRepository) {
@@ -31,5 +33,9 @@ public class TrooperService {
             trooperToAdd = new Barbarian(trainingTime, trainingCost, weapon);
         }
         return trooperRepository.addTrooper(trooperToAdd);
+    }
+
+    public List<Trooper> getTroopersOfCount(int archerCount, int barbarianCount) {
+        return trooperRepository.getTroopersOfCount(archerCount, barbarianCount);
     }
 }

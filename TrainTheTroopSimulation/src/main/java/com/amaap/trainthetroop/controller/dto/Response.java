@@ -5,8 +5,8 @@ import com.amaap.trainthetroop.controller.valueobject.HttpStatus;
 import java.util.Objects;
 
 public class Response {
-    private HttpStatus httpStatus;
-    private String message;
+    private final HttpStatus httpStatus;
+    private final String message;
 
     public Response(HttpStatus httpStatus, String message) {
         this.httpStatus = httpStatus;

@@ -33,7 +33,7 @@ class TrooperControllerTest {
         Response expected = new Response(HttpStatus.OK, "CREATED");
 
         // act
-        Response actual = trooperController.createTrooper(type,trainingTime, trainingCost, weapon);
+        Response actual = trooperController.createTrooper(type, trainingTime, trainingCost, weapon);
 
         // assert
         assertEquals(expected, actual);
@@ -49,7 +49,7 @@ class TrooperControllerTest {
         Response expected = new Response(HttpStatus.BAD_REQUEST, "Invalid Data");
 
         // act
-        Response actual = trooperController.createTrooper(type,trainingTime, trainingCost, weapon);
+        Response actual = trooperController.createTrooper(type, trainingTime, trainingCost, weapon);
 
         // assert
         assertEquals(expected, actual);

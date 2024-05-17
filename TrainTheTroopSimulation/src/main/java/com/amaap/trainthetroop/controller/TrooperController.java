@@ -11,7 +11,7 @@ import com.amaap.trainthetroop.service.exception.InvalidTroopTypeException;
 import com.google.inject.Inject;
 
 public class TrooperController {
-    private TrooperService trooperService;
+    private final TrooperService trooperService;
 
     @Inject
     public TrooperController(TrooperService trooperService) {
