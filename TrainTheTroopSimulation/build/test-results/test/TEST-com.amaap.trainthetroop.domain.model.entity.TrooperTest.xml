@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.amaap.trainthetroop.domain.model.entity.TrooperTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-05-17T06:07:39" hostname="DESKTOP-GUO1275" time="0.036">
+  <properties/>
+  <testcase name="shouldBeAbleToCreateTheTrooperOfTypeArcher()" classname="com.amaap.trainthetroop.domain.model.entity.TrooperTest" time="0.036"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
