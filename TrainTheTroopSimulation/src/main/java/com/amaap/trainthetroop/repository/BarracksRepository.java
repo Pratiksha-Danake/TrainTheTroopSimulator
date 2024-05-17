@@ -2,7 +2,9 @@ package com.amaap.trainthetroop.repository;
 
 import com.amaap.trainthetroop.domain.model.entity.Trooper;
 
-public interface BarracksRepository {
+import java.util.List;
+import java.util.Queue;
 
-    void addTroop(Trooper trooper);
+public interface BarracksRepository {
+    Queue<Trooper> addTroopersToBarracks(List<Trooper> troopers);
 }

@@ -13,6 +13,6 @@ public class AppModule extends AbstractModule {
     protected void configure() {
         bind(TrooperRepository.class).to(InMemoryTrooperRepository.class);
         bind(BarracksRepository.class).to(InMemoryBarracksRepository.class);
-        bind(InMemoryDatabase.class).to(FakeInMemoryDatabase.class);
+        bind(InMemoryDatabase.class).to(FakeInMemoryDatabase.class).asEagerSingleton();
     }
 }

@@ -6,10 +6,13 @@ import com.amaap.trainthetroop.domain.model.entity.Trooper;
 import com.amaap.trainthetroop.repository.db.InMemoryDatabase;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
 
 public class FakeInMemoryDatabase implements InMemoryDatabase {
     private final List<Trooper> troopers = new ArrayList<>();
+    private Queue<Trooper> barracks = new LinkedList<>();
 
     @Override
     public Trooper addTrooper(Trooper trooper) {
@@ -36,5 +39,11 @@ public class FakeInMemoryDatabase implements InMemoryDatabase {
                 break;
         }
         return trooperToTrain;
+    }
+
+    @Override
+    public Queue<Trooper> addTroopersToBarrack(List<Trooper> troopers) {
+        barracks.addAll(troopers);
+        return barracks;
     }
 }

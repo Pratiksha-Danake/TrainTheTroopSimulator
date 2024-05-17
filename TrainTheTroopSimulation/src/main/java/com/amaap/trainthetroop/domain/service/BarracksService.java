@@ -20,9 +20,9 @@ public class BarracksService {
         this.barrackRepository = barrackRepository;
     }
 
-    public Queue<Trooper> getTroopersToTrain(int archerCount, int barbarianCount) {
+    public Queue<Trooper> addTroopersToBarrack(int archerCount, int barbarianCount) {
         List<Trooper> troopers = trooperService.getTroopersOfCount(archerCount, barbarianCount);
         waitingTroopers.addAll(troopers);
-        return waitingTroopers;
+        return barrackRepository.addTroopersToBarracks(troopers);
     }
 }

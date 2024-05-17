@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.amaap.trainthetroop.domain.service.BarracksServiceTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-05-17T17:14:05" hostname="DESKTOP-GUO1275" time="0.34">
+  <properties/>
+  <testcase name="shouldBeAbleToAddTroopersIntoBarrackForTraining()" classname="com.amaap.trainthetroop.domain.service.BarracksServiceTest" time="0.34"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
