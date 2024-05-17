@@ -38,4 +38,20 @@ class TrooperControllerTest {
         // assert
         assertEquals(expected, actual);
     }
+
+    @Test
+    void shouldBeAbleToReturnResponseAsBadRequestIfFailToCreateTrooperSuccessfully() throws InvalidTrainingTimeException, InvalidTrainingCostException, InvalidTrooperWeaponException {
+        // arrange
+        int trainingTime = 6;
+        int trainingCost = 0;
+        String weapon = "Bow and Arrow";
+        Troop type = Troop.ARCHER;
+        Response expected = new Response(HttpStatus.BAD_REQUEST, "Invalid Data");
+
+        // act
+        Response actual = trooperController.createTrooper(type,trainingTime, trainingCost, weapon);
+
+        // assert
+        assertEquals(expected, actual);
+    }
 }
