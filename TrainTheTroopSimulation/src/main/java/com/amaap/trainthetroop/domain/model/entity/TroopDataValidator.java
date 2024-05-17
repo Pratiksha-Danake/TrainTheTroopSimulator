@@ -6,4 +6,10 @@ public class TroopDataValidator {
             return true;
         return false;
     }
+
+    static boolean isInvalidTrainingCost(int trainingCost) {
+        if (trainingCost <= 0)
+            return true;
+        return false;
+    }
 }

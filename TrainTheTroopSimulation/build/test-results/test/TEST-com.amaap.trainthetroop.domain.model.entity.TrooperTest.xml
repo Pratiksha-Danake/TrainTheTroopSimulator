@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.amaap.trainthetroop.domain.model.entity.TrooperTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2024-05-17T06:26:21" hostname="DESKTOP-GUO1275" time="0.055">
+<testsuite name="com.amaap.trainthetroop.domain.model.entity.TrooperTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2024-05-17T06:33:55" hostname="DESKTOP-GUO1275" time="0.059">
   <properties/>
   <testcase name="shouldBeAbleToCreateTheTrooperOfTypeArcher()" classname="com.amaap.trainthetroop.domain.model.entity.TrooperTest" time="0.035"/>
-  <testcase name="shouldThrowInvalidTrainingTimeExceptionIfTrainingTimeIsNotValid()" classname="com.amaap.trainthetroop.domain.model.entity.TrooperTest" time="0.015"/>
+  <testcase name="shouldThrowInvalidTrainingCostExceptionIfTrainingCostIsNotValid()" classname="com.amaap.trainthetroop.domain.model.entity.TrooperTest" time="0.015"/>
+  <testcase name="shouldThrowInvalidTrainingTimeExceptionIfTrainingTimeIsNotValid()" classname="com.amaap.trainthetroop.domain.model.entity.TrooperTest" time="0.004"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
