@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.amaap.trainthetroop.service.TrooperServiceTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-05-17T08:28:48" hostname="DESKTOP-GUO1275" time="0.306">
-  <properties/>
-  <testcase name="shouldBeAbleToCreateTheTrooper()" classname="com.amaap.trainthetroop.service.TrooperServiceTest" time="0.306"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>

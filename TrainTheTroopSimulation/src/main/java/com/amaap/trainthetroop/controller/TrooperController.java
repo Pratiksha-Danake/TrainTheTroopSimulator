@@ -2,12 +2,29 @@ package com.amaap.trainthetroop.controller;
 
 import com.amaap.trainthetroop.controller.dto.Response;
 import com.amaap.trainthetroop.controller.valueobject.HttpStatus;
+import com.amaap.trainthetroop.domain.model.entity.Troop;
+import com.amaap.trainthetroop.domain.model.entity.exception.InvalidTrainingCostException;
+import com.amaap.trainthetroop.domain.model.entity.exception.InvalidTrainingTimeException;
+import com.amaap.trainthetroop.domain.model.entity.exception.InvalidTrooperWeaponException;
 import com.amaap.trainthetroop.service.TrooperService;
+import com.amaap.trainthetroop.service.exception.InvalidTroopTypeException;
+import com.google.inject.Inject;
 
 public class TrooperController {
     private TrooperService trooperService;
 
-    public Response createTrooper(int trainingTime, int trainingCost, String weapon) {
-        return new Response(HttpStatus.OK, "CREATED");
+    @Inject
+    public TrooperController(TrooperService trooperService) {
+        this.trooperService = trooperService;
+    }
+
+    public Response createTrooper(Troop type, int trainingTime, int trainingCost, String weapon) {
+        try {
+            trooperService.createTrooper(type, trainingTime, trainingCost, weapon);
+            return new Response(HttpStatus.OK, "CREATED");
+        } catch (InvalidTroopTypeException | InvalidTrainingTimeException | InvalidTrainingCostException |
+                 InvalidTrooperWeaponException e) {
+            return new Response(HttpStatus.BAD_REQUEST, "Invalid Data");
+        }
     }
 }

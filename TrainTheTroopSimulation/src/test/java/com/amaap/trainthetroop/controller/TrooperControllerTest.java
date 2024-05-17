@@ -3,6 +3,7 @@ package com.amaap.trainthetroop.controller;
 import com.amaap.trainthetroop.AppModule;
 import com.amaap.trainthetroop.controller.dto.Response;
 import com.amaap.trainthetroop.controller.valueobject.HttpStatus;
+import com.amaap.trainthetroop.domain.model.entity.Troop;
 import com.amaap.trainthetroop.domain.model.entity.exception.InvalidTrainingCostException;
 import com.amaap.trainthetroop.domain.model.entity.exception.InvalidTrainingTimeException;
 import com.amaap.trainthetroop.domain.model.entity.exception.InvalidTrooperWeaponException;
@@ -28,10 +29,11 @@ class TrooperControllerTest {
         int trainingTime = 6;
         int trainingCost = 20;
         String weapon = "Bow and Arrow";
+        Troop type = Troop.ARCHER;
         Response expected = new Response(HttpStatus.OK, "CREATED");
 
         // act
-        Response actual = trooperController.createTrooper(trainingTime, trainingCost, weapon);
+        Response actual = trooperController.createTrooper(type,trainingTime, trainingCost, weapon);
 
         // assert
         assertEquals(expected, actual);
