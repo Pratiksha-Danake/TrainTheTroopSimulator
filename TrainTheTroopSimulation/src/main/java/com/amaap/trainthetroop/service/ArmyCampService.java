@@ -22,4 +22,5 @@ public class ArmyCampService {
     public List<Trooper> getTroopers() {
         return armyCampRepository.getTroopers();
     }
+
 }
