@@ -1,4 +1,4 @@
-package com.amaap.trainthetroop.service;
+package com.amaap.trainthetroop.repository.impl;
 
 import com.amaap.trainthetroop.AppModule;
 import com.amaap.trainthetroop.domain.model.entity.Archer;
@@ -15,13 +15,13 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class ArmyCampServiceTest {
-    private ArmyCampService armyCampService;
+class InMemoryArmyCampRepositoryTest {
+    private InMemoryArmyCampRepository inMemoryArmyCampRepository;
 
     @BeforeEach
     void initialize() {
         Injector injector = Guice.createInjector(new AppModule());
-        armyCampService = injector.getInstance(ArmyCampService.class);
+        inMemoryArmyCampRepository = injector.getInstance(InMemoryArmyCampRepository.class);
     }
 
     @Test
@@ -32,11 +32,11 @@ class ArmyCampServiceTest {
         int expectedTrooperCountInCamp = 2;
 
         // act
-        armyCampService.addTroopToCamp(trooper1);
-        armyCampService.addTroopToCamp(trooper2);
+        inMemoryArmyCampRepository.addToCamp(trooper1);
+        inMemoryArmyCampRepository.addToCamp(trooper2);
 
         // assert
-        assertEquals(expectedTrooperCountInCamp, armyCampService.getTroopers().size());
+        assertEquals(expectedTrooperCountInCamp, inMemoryArmyCampRepository.getTroopers().size());
     }
 
     @Test
@@ -48,10 +48,10 @@ class ArmyCampServiceTest {
         int expectedBarbarianCount = 1;
 
         // act
-        armyCampService.addTroopToCamp(trooper1);
-        armyCampService.addTroopToCamp(trooper2);
-        int actualArcherCount = armyCampService.getCountOfTrooper(Troop.ARCHER);
-        int actualBarbarianCount = armyCampService.getCountOfTrooper(Troop.BARBARIAN);
+        inMemoryArmyCampRepository.addToCamp(trooper1);
+        inMemoryArmyCampRepository.addToCamp(trooper2);
+        int actualArcherCount = inMemoryArmyCampRepository.getCountOfTrooper(Troop.ARCHER);
+        int actualBarbarianCount = inMemoryArmyCampRepository.getCountOfTrooper(Troop.BARBARIAN);
 
         //assert
         assertEquals(expectedArcherCount, actualArcherCount);

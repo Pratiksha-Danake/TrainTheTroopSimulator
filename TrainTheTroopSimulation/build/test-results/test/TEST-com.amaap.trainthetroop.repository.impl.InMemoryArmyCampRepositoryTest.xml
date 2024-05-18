@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.amaap.trainthetroop.repository.impl.InMemoryArmyCampRepositoryTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2024-05-18T10:15:29" hostname="DESKTOP-GUO1275" time="0.827">
+  <properties/>
+  <testcase name="shouldBeAbleToGetCountOfSpecificTypeOfTrooperFromArmyCamp()" classname="com.amaap.trainthetroop.repository.impl.InMemoryArmyCampRepositoryTest" time="0.809"/>
+  <testcase name="shouldBeAbleToAddTrooperToArmyCamp()" classname="com.amaap.trainthetroop.repository.impl.InMemoryArmyCampRepositoryTest" time="0.013"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

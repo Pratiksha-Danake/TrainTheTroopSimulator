@@ -20,6 +20,7 @@ public class ArmyCampService {
         return armyCampRepository.addToCamp(trooper);
     }
 
+
     public List<Trooper> getTroopers() {
         return armyCampRepository.getTroopers();
     }
