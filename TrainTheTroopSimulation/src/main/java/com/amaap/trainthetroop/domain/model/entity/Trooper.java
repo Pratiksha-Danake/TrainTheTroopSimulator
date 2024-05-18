@@ -25,6 +25,9 @@ public class Trooper {
         this.weapon = weapon;
     }
 
+    public int getTrainingTime() {
+        return trainingTime;
+    }
 
     @Override
     public boolean equals(Object o) {

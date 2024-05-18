@@ -7,4 +7,7 @@ import java.util.Queue;
 
 public interface BarracksRepository {
     Queue<Trooper> addTroopersToBarracks(List<Trooper> troopers);
+
+    Queue<Trooper> getTroopersInWaitingQueueToTrain();
+
 }

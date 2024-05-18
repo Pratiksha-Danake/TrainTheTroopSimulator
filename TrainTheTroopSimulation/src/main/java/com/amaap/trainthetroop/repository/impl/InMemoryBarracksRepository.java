@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Queue;
 
 public class InMemoryBarracksRepository implements BarracksRepository {
-    private InMemoryDatabase inMemoryDatabase;
+    private final InMemoryDatabase inMemoryDatabase;
 
     @Inject
     public InMemoryBarracksRepository(InMemoryDatabase inMemoryDatabase) {
@@ -19,5 +19,10 @@ public class InMemoryBarracksRepository implements BarracksRepository {
     @Override
     public Queue<Trooper> addTroopersToBarracks(List<Trooper> troopers) {
         return inMemoryDatabase.addTroopersToBarrack(troopers);
+    }
+
+    @Override
+    public Queue<Trooper> getTroopersInWaitingQueueToTrain() {
+        return inMemoryDatabase.getTroopersFromBarracks();
     }
 }

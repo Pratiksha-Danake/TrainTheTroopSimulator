@@ -13,6 +13,7 @@ import com.google.inject.Injector;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.time.Instant;
 import java.util.Queue;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -44,5 +45,26 @@ class BarracksServiceTest {
 
         // assert
         assertEquals(expectedBarracksSize, troopersInBarracks.size());
+    }
+
+    @Test
+    void shouldBeAbleToTrainSingleTroopAtATime() throws InvalidTroopTypeException, InvalidTrainingTimeException, InvalidTrainingCostException, InvalidTrooperWeaponException, InterruptedException {
+        // arrange
+        int archerCount = 5;
+        int barbarianCount = 5;
+        int expectedTimeToTrainInMilliSeconds = 45;
+        for (int i = 0; i < 5; i++) {
+            trooperService.createTrooper(Troop.ARCHER, 6, 20, "Bow and Arrow");
+            trooperService.createTrooper(Troop.BARBARIAN, 3, 10, "Sword");
+        }
+
+        // act
+        barracksService.addTroopersToBarrack(archerCount, barbarianCount);
+        long startTime = Instant.now().getEpochSecond();
+        barracksService.trainTheTroop();
+        long endTime = Instant.now().getEpochSecond();
+
+        // assert
+        assertEquals(expectedTimeToTrainInMilliSeconds, (endTime - startTime));
     }
 }

@@ -11,4 +11,7 @@ public interface InMemoryDatabase {
     List<Trooper> getTroopersOfCount(int archerCount, int barbarianCount);
 
     Queue<Trooper> addTroopersToBarrack(List<Trooper> troopers);
+
+    Queue<Trooper> getTroopersFromBarracks();
+
 }
