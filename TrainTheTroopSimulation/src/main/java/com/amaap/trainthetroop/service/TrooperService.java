@@ -8,7 +8,6 @@ import com.amaap.trainthetroop.domain.model.entity.exception.InvalidTrainingCost
 import com.amaap.trainthetroop.domain.model.entity.exception.InvalidTrainingTimeException;
 import com.amaap.trainthetroop.domain.model.entity.exception.InvalidTrooperWeaponException;
 import com.amaap.trainthetroop.repository.TrooperRepository;
-import com.amaap.trainthetroop.service.exception.InvalidTroopTypeException;
 import com.google.inject.Inject;
 
 import java.util.List;
@@ -22,11 +21,9 @@ public class TrooperService {
     }
 
     public Trooper createTrooper(Troop type, int trainingTime, int trainingCost, String weapon) throws
-            InvalidTroopTypeException, InvalidTrainingTimeException, InvalidTrainingCostException, InvalidTrooperWeaponException {
+            InvalidTrainingTimeException, InvalidTrainingCostException, InvalidTrooperWeaponException {
         Trooper trooperToAdd = null;
 
-        if (Troop.notContains(type))
-            throw new InvalidTroopTypeException("Invalid Troop " + type);
         if (type.equals(Troop.ARCHER))
             trooperToAdd = new Archer(trainingTime, trainingCost, weapon);
         else if (type.equals(Troop.BARBARIAN)) {

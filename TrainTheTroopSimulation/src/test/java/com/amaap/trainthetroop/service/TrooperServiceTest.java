@@ -7,7 +7,6 @@ import com.amaap.trainthetroop.domain.model.entity.Trooper;
 import com.amaap.trainthetroop.domain.model.entity.exception.InvalidTrainingCostException;
 import com.amaap.trainthetroop.domain.model.entity.exception.InvalidTrainingTimeException;
 import com.amaap.trainthetroop.domain.model.entity.exception.InvalidTrooperWeaponException;
-import com.amaap.trainthetroop.service.exception.InvalidTroopTypeException;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
 import org.junit.jupiter.api.BeforeEach;
@@ -28,7 +27,7 @@ class TrooperServiceTest {
 
     @Test
     void shouldBeAbleToCreateTheTrooper() throws
-            InvalidTrainingTimeException, InvalidTrainingCostException, InvalidTrooperWeaponException, InvalidTroopTypeException {
+            InvalidTrainingTimeException, InvalidTrainingCostException, InvalidTrooperWeaponException {
         // arrange
         int trainingTime = 6;
         int trainingCost = 20;
@@ -44,7 +43,7 @@ class TrooperServiceTest {
     }
 
     @Test
-    void shouldBeAbleToGetTroopersOfSpecifiedCount() throws InvalidTroopTypeException, InvalidTrainingTimeException, InvalidTrainingCostException, InvalidTrooperWeaponException {
+    void shouldBeAbleToGetTroopersOfSpecifiedCount() throws InvalidTrainingTimeException, InvalidTrainingCostException, InvalidTrooperWeaponException {
         // arrange
         int expectedArcherCount = 5;
         int expectedBarbarianCount = 5;

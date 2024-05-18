@@ -7,7 +7,6 @@ import com.amaap.trainthetroop.domain.model.entity.exception.InvalidTrainingCost
 import com.amaap.trainthetroop.domain.model.entity.exception.InvalidTrainingTimeException;
 import com.amaap.trainthetroop.domain.model.entity.exception.InvalidTrooperWeaponException;
 import com.amaap.trainthetroop.service.TrooperService;
-import com.amaap.trainthetroop.service.exception.InvalidTroopTypeException;
 import com.google.inject.Inject;
 
 public class TrooperController {
@@ -22,7 +21,7 @@ public class TrooperController {
         try {
             trooperService.createTrooper(type, trainingTime, trainingCost, weapon);
             return new Response(HttpStatus.OK, "CREATED");
-        } catch (InvalidTroopTypeException | InvalidTrainingTimeException | InvalidTrainingCostException |
+        } catch (InvalidTrainingTimeException | InvalidTrainingCostException |
                  InvalidTrooperWeaponException e) {
             return new Response(HttpStatus.BAD_REQUEST, "Invalid Data");
         }

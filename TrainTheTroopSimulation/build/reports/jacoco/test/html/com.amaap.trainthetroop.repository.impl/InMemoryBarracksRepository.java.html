@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>InMemoryBarracksRepository.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">TrainTheTroopSimulation</a> &gt; <a href="index.source.html" class="el_package">com.amaap.trainthetroop.repository.impl</a> &gt; <span class="el_source">InMemoryBarracksRepository.java</span></div><h1>InMemoryBarracksRepository.java</h1><pre class="source lang-java linenums">package com.amaap.trainthetroop.repository.impl;
+
+import com.amaap.trainthetroop.domain.model.entity.Trooper;
+import com.amaap.trainthetroop.repository.BarracksRepository;
+import com.amaap.trainthetroop.repository.db.InMemoryDatabase;
+import com.google.inject.Inject;
+
+import java.util.List;
+import java.util.Queue;
+
+public class InMemoryBarracksRepository implements BarracksRepository {
+    private final InMemoryDatabase inMemoryDatabase;
+
+    @Inject
+<span class="fc" id="L15">    public InMemoryBarracksRepository(InMemoryDatabase inMemoryDatabase) {</span>
+<span class="fc" id="L16">        this.inMemoryDatabase = inMemoryDatabase;</span>
+<span class="fc" id="L17">    }</span>
+
+    @Override
+    public Queue&lt;Trooper&gt; addTroopersToBarracks(List&lt;Trooper&gt; troopers) {
+<span class="fc" id="L21">        return inMemoryDatabase.addTroopersToBarrack(troopers);</span>
+    }
+
+    @Override
+    public Queue&lt;Trooper&gt; getTroopersInWaitingQueueToTrain() {
+<span class="fc" id="L26">        return inMemoryDatabase.getTroopersFromBarracks();</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

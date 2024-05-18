@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.amaap.trainthetroop.domain.service.BarracksServiceTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-05-18T05:53:15" hostname="DESKTOP-GUO1275" time="9.319">
+<testsuite name="com.amaap.trainthetroop.domain.service.BarracksServiceTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-05-18T07:33:01" hostname="DESKTOP-GUO1275" time="0.632">
   <properties/>
-  <testcase name="shouldBeAbleToAddTheTrainedTroopersToArmyCamp()" classname="com.amaap.trainthetroop.domain.service.BarracksServiceTest" time="9.319"/>
-  <system-out><![CDATA[Trained One Archer
-Trained One Barbarian
-]]></system-out>
+  <testcase name="shouldThrowTrooperLimitExceededExceptionIfTroopersToAddBarracksAreMoreThanTen()" classname="com.amaap.trainthetroop.domain.service.BarracksServiceTest" time="0.632"/>
+  <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

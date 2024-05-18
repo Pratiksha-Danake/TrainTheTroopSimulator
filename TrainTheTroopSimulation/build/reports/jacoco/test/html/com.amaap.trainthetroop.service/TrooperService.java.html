@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>TrooperService.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">TrainTheTroopSimulation</a> &gt; <a href="index.source.html" class="el_package">com.amaap.trainthetroop.service</a> &gt; <span class="el_source">TrooperService.java</span></div><h1>TrooperService.java</h1><pre class="source lang-java linenums">package com.amaap.trainthetroop.service;
+
+import com.amaap.trainthetroop.domain.model.entity.Archer;
+import com.amaap.trainthetroop.domain.model.entity.Barbarian;
+import com.amaap.trainthetroop.domain.model.entity.Troop;
+import com.amaap.trainthetroop.domain.model.entity.Trooper;
+import com.amaap.trainthetroop.domain.model.entity.exception.InvalidTrainingCostException;
+import com.amaap.trainthetroop.domain.model.entity.exception.InvalidTrainingTimeException;
+import com.amaap.trainthetroop.domain.model.entity.exception.InvalidTrooperWeaponException;
+import com.amaap.trainthetroop.repository.TrooperRepository;
+import com.amaap.trainthetroop.service.exception.InvalidTroopTypeException;
+import com.google.inject.Inject;
+
+import java.util.List;
+
+public class TrooperService {
+    private final TrooperRepository trooperRepository;
+
+    @Inject
+<span class="fc" id="L20">    public TrooperService(TrooperRepository trooperRepository) {</span>
+<span class="fc" id="L21">        this.trooperRepository = trooperRepository;</span>
+<span class="fc" id="L22">    }</span>
+
+    public Trooper createTrooper(Troop type, int trainingTime, int trainingCost, String weapon) throws
+            InvalidTroopTypeException, InvalidTrainingTimeException, InvalidTrainingCostException, InvalidTrooperWeaponException {
+<span class="fc" id="L26">        Trooper trooperToAdd = null;</span>
+
+<span class="pc bpc" id="L28" title="1 of 2 branches missed.">        if (Troop.notContains(type))</span>
+<span class="nc" id="L29">            throw new InvalidTroopTypeException(&quot;Invalid Troop &quot; + type);</span>
+<span class="fc bfc" id="L30" title="All 2 branches covered.">        if (type.equals(Troop.ARCHER))</span>
+<span class="fc" id="L31">            trooperToAdd = new Archer(trainingTime, trainingCost, weapon);</span>
+<span class="pc bpc" id="L32" title="1 of 2 branches missed.">        else if (type.equals(Troop.BARBARIAN)) {</span>
+<span class="fc" id="L33">            trooperToAdd = new Barbarian(trainingTime, trainingCost, weapon);</span>
+        }
+<span class="fc" id="L35">        return trooperRepository.addTrooper(trooperToAdd);</span>
+    }
+
+    public List&lt;Trooper&gt; getTroopersOfCount(int archerCount, int barbarianCount) {
+<span class="fc" id="L39">        return trooperRepository.getTroopersOfCount(archerCount, barbarianCount);</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

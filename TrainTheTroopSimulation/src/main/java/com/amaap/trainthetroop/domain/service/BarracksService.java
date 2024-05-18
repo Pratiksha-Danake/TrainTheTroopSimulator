@@ -2,6 +2,7 @@ package com.amaap.trainthetroop.domain.service;
 
 import com.amaap.trainthetroop.domain.model.entity.Archer;
 import com.amaap.trainthetroop.domain.model.entity.Trooper;
+import com.amaap.trainthetroop.domain.service.exception.TrooperLimitExceededException;
 import com.amaap.trainthetroop.repository.BarracksRepository;
 import com.amaap.trainthetroop.service.ArmyCampService;
 import com.amaap.trainthetroop.service.TrooperService;
@@ -27,7 +28,9 @@ public class BarracksService {
         this.armyCampService = armyCampService;
     }
 
-    public Queue<Trooper> addTroopersToBarrack(int archerCount, int barbarianCount) {
+    public Queue<Trooper> addTroopersToBarrack(int archerCount, int barbarianCount) throws TrooperLimitExceededException {
+        if (archerCount + barbarianCount > 10)
+            throw new TrooperLimitExceededException("Can't add more than 10 Troopers to Barracks..!");
         List<Trooper> troopers = trooperService.getTroopersOfCount(archerCount, barbarianCount);
         waitingTroopers.addAll(troopers);
         return barrackRepository.addTroopersToBarracks(troopers);
