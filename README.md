@@ -8,7 +8,7 @@ Problem Statement: (Troop training simulation is inspired from Clash of Clans ga
 As a gaming programmer you have to create a simulation software using which gamers can train army troops.
 Definition and details of the simulation is as follows
 
-## Trooper Training Details
+#### Trooper Training Details
 
 | Trooper Type | Weapon        | Training Time (seconds) | Training Cost (magic potions) |
 | ------------ | ------------- | ----------------------- | ----------------------------- |
@@ -51,11 +51,11 @@ troop-training > start-training
 8. view troop camp
    What do you want to do ? 1
 
-## OOMD Solution :
+#### OOMD Solution :
 
-## Package `com.amaap.trainthetroop.domain.model.entity`
+##### Package `com.amaap.trainthetroop.domain.model.entity`
 
-## Class `Trooper`
+##### Class `Trooper`
 
 **Attributes:**
 
@@ -76,7 +76,7 @@ troop-training > start-training
 - `InvalidTrainingCostException`: Thrown when the training cost is zero or less.
 - `InvalidTrooperWeaponException`: Thrown when the weapon is null or empty.
 
-## Class `Archer`
+##### Class `Archer`
 
 **Attributes:**
 
@@ -86,7 +86,7 @@ troop-training > start-training
 
 - `public Archer(int trainingTime, int trainingCost, String weapon) throws InvalidTrainingTimeException, InvalidTrainingCostException, InvalidTrooperWeaponException`
 
-## Class `Barbarian`
+##### Class `Barbarian`
 
 **Attributes:**
 
@@ -96,17 +96,17 @@ troop-training > start-training
 
 - `public Barbarian(int trainingTime, int trainingCost, String weapon) throws InvalidTrainingTimeException, InvalidTrainingCostException, InvalidTrooperWeaponException`
 
-## Package `com.amaap.trainthetroop.domain.model.entity.exception`
+##### Package `com.amaap.trainthetroop.domain.model.entity.exception`
 
-## Class `InvalidTrainingTimeException`
+##### Class `InvalidTrainingTimeException`
 
-## Class `InvalidTrainingCostException`
+##### Class `InvalidTrainingCostException`
 
-## Class `InvalidTrooperWeaponException`
+##### Class `InvalidTrooperWeaponException`
 
-## Package `com.amaap.trainthetroop.domain.model.entity.validator`
+##### Package `com.amaap.trainthetroop.domain.model.entity.validator`
 
-## Validator Methods
+##### Validator Methods
 
 **Behaviors:**
 
@@ -114,9 +114,9 @@ troop-training > start-training
 - `public static boolean isInvalidTrainingCost(int trainingCost)`
 - `public static boolean isInValidWeapon(String weapon)`
 
-## Package `com.amaap.trainthetroop.controller.dto`
+##### Package `com.amaap.trainthetroop.controller.dto`
 
-## Class `Response`
+##### Class `Response`
 
 **Attributes:**
 
@@ -129,20 +129,20 @@ troop-training > start-training
 - `@Override public boolean equals(Object o)`: Checks if the current object is equal to another object.
 - `@Override public int hashCode()`: Returns the hash code value for the object.
 
-## Package `com.amaap.trainthetroop.controller.valueobject`
+##### Package `com.amaap.trainthetroop.controller.valueobject`
 
-## Enum `HttpStatus`
+##### Enum `HttpStatus`
 
 **Values:**
 
 - `OK`: Indicates the request was successful.
 - `BAD_REQUEST`: Indicates the request is invalid.
 
-# Documentation for `com.amaap.trainthetroop`
+##### Documentation for `com.amaap.trainthetroop`
 
-## Package `com.amaap.trainthetroop.controller`
+##### Package `com.amaap.trainthetroop.controller`
 
-## Class `TrooperController`
+##### Class `TrooperController`
 
 **Attributes:**
 
@@ -154,7 +154,7 @@ troop-training > start-training
 - `public Response createTrooper(Troop type, int trainingTime, int trainingCost, String weapon)`: Creates a trooper and returns a response.
 - `public List<Trooper> getTroopersOfCount(int archerCount, int barbarianCount)`: Retrieves a list of troopers based on counts.
 
-## Class `ArmyCampController`
+##### Class `ArmyCampController`
 
 **Attributes:**
 
@@ -167,7 +167,7 @@ troop-training > start-training
 - `public List<Trooper> getTroopers()`: Retrieves a list of troopers.
 - `public int getCountOfTrooper(Troop troop)`: Gets the count of a specific type of trooper.
 
-## Class `BarracksController`
+##### Class `BarracksController`
 
 **Attributes:**
 
@@ -179,9 +179,9 @@ troop-training > start-training
 - `public Response addTroopersToBarrack(int archerCount, int barbarianCount)`: Adds troopers to the barrack and returns a response.
 - `public void trainTheTroop() throws InterruptedException`: Trains the troop.
 
-## Package `com.amaap.trainthetroop.domain.service`
+##### Package `com.amaap.trainthetroop.domain.service`
 
-## Class `BarracksService`
+##### Class `BarracksService`
 
 **Attributes:**
 
@@ -196,9 +196,9 @@ troop-training > start-training
 - `public Queue<Trooper> addTroopersToBarrack(int archerCount, int barbarianCount) throws TrooperLimitExceededException`: Adds troopers to the barrack and returns the updated queue.
 - `public synchronized void trainTheTroop() throws InterruptedException`: Trains the troopers in the queue.
 
-## Package `com.amaap.trainthetroop.domain.service.exception`
+##### Package `com.amaap.trainthetroop.domain.service.exception`
 
-## Class `TrooperLimitExceededException`
+##### Class `TrooperLimitExceededException`
 
 **Attributes:**
 
@@ -208,9 +208,9 @@ troop-training > start-training
 
 - `public TrooperLimitExceededException(String message)`: Constructor that accepts a message to describe the exception.
 
-## Package `com.amaap.trainthetroop.service`
+##### Package `com.amaap.trainthetroop.service`
 
-## Class `ArmyCampService`
+##### Class `ArmyCampService`
 
 **Attributes:**
 
@@ -223,7 +223,7 @@ troop-training > start-training
 - `public List<Trooper> getTroopers()`: Retrieves a list of troopers from the army camp.
 - `public int getCountOfTrooper(Troop troop)`: Gets the count of troopers of a specific type from the army camp.
 
-## Class `TrooperService`
+##### Class `TrooperService`
 
 **Attributes:**
 
@@ -235,7 +235,7 @@ troop-training > start-training
 - `public Trooper createTrooper(Troop type, int trainingTime, int trainingCost, String weapon) throws InvalidTrainingTimeException, InvalidTrainingCostException, InvalidTrooperWeaponException`: Creates a trooper of the specified type with the given attributes.
 - `public List<Trooper> getTroopersOfCount(int archerCount, int barbarianCount)`: Retrieves a list of troopers based on the specified counts of archers and barbarians.
 
-## Class `InMemoryArmyCampRepository`
+##### Class `InMemoryArmyCampRepository`
 
 **Attributes:**
 
@@ -248,7 +248,7 @@ troop-training > start-training
 - `@Override public List<Trooper> getTroopers()`: Retrieves a list of troopers from the army camp.
 - `@Override public int getCountOfTrooper(Troop troop)`: Gets the count of troopers of a specific type from the army camp.
 
-## Class `InMemoryBarracksRepository`
+##### Class `InMemoryBarracksRepository`
 
 **Attributes:**
 
@@ -260,7 +260,7 @@ troop-training > start-training
 - `@Override public Queue<Trooper> addTroopersToBarracks(List<Trooper> troopers)`: Adds troopers to the barracks.
 - `@Override public Queue<Trooper> getTroopersInWaitingQueueToTrain()`: Retrieves troopers from the waiting queue in the barracks.
 
-## Class `InMemoryTrooperRepository`
+##### Class `InMemoryTrooperRepository`
 
 **Attributes:**
 
@@ -272,9 +272,9 @@ troop-training > start-training
 - `@Override public Trooper addTrooper(Trooper trooper)`: Adds a trooper to the repository.
 - `@Override public List<Trooper> getTroopersOfCount(int archerCount, int barbarianCount)`: Retrieves a list of troopers based on the specified counts of archers and barbarians.
 
-## Package `com.amaap.trainthetroop.repository`
+##### Package `com.amaap.trainthetroop.repository`
 
-## Interface `ArmyCampRepository`
+##### Interface `ArmyCampRepository`
 
 **Behaviors:**
 
@@ -282,23 +282,23 @@ troop-training > start-training
 - `List<Trooper> getTroopers()`: Retrieves a list of troopers from the army camp.
 - `int getCountOfTrooper(Troop troop)`: Gets the count of troopers of a specific type from the army camp.
 
-## Interface `BarracksRepository`
+##### Interface `BarracksRepository`
 
 **Behaviors:**
 
 - `Queue<Trooper> addTroopersToBarracks(List<Trooper> troopers)`: Adds troopers to the barracks and returns the updated queue.
 - `Queue<Trooper> getTroopersInWaitingQueueToTrain()`: Retrieves troopers from the waiting queue in the barracks.
 
-## Interface `TrooperRepository`
+##### Interface `TrooperRepository`
 
 **Behaviors:**
 
 - `Trooper addTrooper(Trooper trooperToAdd)`: Adds a trooper to the repository and returns the added trooper.
 - `List<Trooper> getTroopersOfCount(int archerCount, int barbarianCount)`: Retrieves a list of troopers based on the specified counts of archers and barbarians.
 
-## Package `com.amaap.trainthetroop.repository.db`
+##### Package `com.amaap.trainthetroop.repository.db`
 
-## Interface `InMemoryDatabase`
+##### Interface `InMemoryDatabase`
 
 **Behaviors:**
 
@@ -310,7 +310,7 @@ troop-training > start-training
 - `List<Trooper> getTroopersFromCamp()`: Retrieves troopers from the army camp.
 - `int getCountOfTrooper(Troop troop)`: Gets the count of troopers of a specific type from the army camp.
 
-## Class `FakeInMemoryDatabase`
+##### Class `FakeInMemoryDatabase`
 
 **Attributes:**
 
