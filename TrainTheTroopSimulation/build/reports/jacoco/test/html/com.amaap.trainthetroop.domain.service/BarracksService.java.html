@@ -2,6 +2,7 @@
 
 import com.amaap.trainthetroop.domain.model.entity.Archer;
 import com.amaap.trainthetroop.domain.model.entity.Trooper;
+import com.amaap.trainthetroop.domain.service.exception.TrooperLimitExceededException;
 import com.amaap.trainthetroop.repository.BarracksRepository;
 import com.amaap.trainthetroop.service.ArmyCampService;
 import com.amaap.trainthetroop.service.TrooperService;
@@ -18,32 +19,34 @@ public class BarracksService {
 
     private final ArmyCampService armyCampService;
 
-<span class="fc" id="L21">    Queue&lt;Trooper&gt; waitingTroopers = new LinkedList&lt;&gt;();</span>
+<span class="fc" id="L22">    Queue&lt;Trooper&gt; waitingTroopers = new LinkedList&lt;&gt;();</span>
 
     @Inject
-<span class="fc" id="L24">    public BarracksService(BarracksRepository barrackRepository, TrooperService trooperService, ArmyCampService armyCampService) {</span>
-<span class="fc" id="L25">        this.trooperService = trooperService;</span>
-<span class="fc" id="L26">        this.barrackRepository = barrackRepository;</span>
-<span class="fc" id="L27">        this.armyCampService = armyCampService;</span>
-<span class="fc" id="L28">    }</span>
+<span class="fc" id="L25">    public BarracksService(BarracksRepository barrackRepository, TrooperService trooperService, ArmyCampService armyCampService) {</span>
+<span class="fc" id="L26">        this.trooperService = trooperService;</span>
+<span class="fc" id="L27">        this.barrackRepository = barrackRepository;</span>
+<span class="fc" id="L28">        this.armyCampService = armyCampService;</span>
+<span class="fc" id="L29">    }</span>
 
-    public Queue&lt;Trooper&gt; addTroopersToBarrack(int archerCount, int barbarianCount) {
-<span class="fc" id="L31">        List&lt;Trooper&gt; troopers = trooperService.getTroopersOfCount(archerCount, barbarianCount);</span>
-<span class="fc" id="L32">        waitingTroopers.addAll(troopers);</span>
-<span class="fc" id="L33">        return barrackRepository.addTroopersToBarracks(troopers);</span>
+    public Queue&lt;Trooper&gt; addTroopersToBarrack(int archerCount, int barbarianCount) throws TrooperLimitExceededException {
+<span class="fc bfc" id="L32" title="All 2 branches covered.">        if (archerCount + barbarianCount &gt; 10)</span>
+<span class="fc" id="L33">            throw new TrooperLimitExceededException(&quot;Can't add more than 10 Troopers to Barracks..!&quot;);</span>
+<span class="fc" id="L34">        List&lt;Trooper&gt; troopers = trooperService.getTroopersOfCount(archerCount, barbarianCount);</span>
+<span class="fc" id="L35">        waitingTroopers.addAll(troopers);</span>
+<span class="fc" id="L36">        return barrackRepository.addTroopersToBarracks(troopers);</span>
     }
 
     public synchronized void trainTheTroop() throws InterruptedException {
-<span class="fc" id="L37">        Queue&lt;Trooper&gt; troopers = barrackRepository.getTroopersInWaitingQueueToTrain();</span>
-<span class="fc" id="L38">        Iterator&lt;Trooper&gt; iterator = troopers.iterator();</span>
+<span class="fc" id="L40">        Queue&lt;Trooper&gt; troopers = barrackRepository.getTroopersInWaitingQueueToTrain();</span>
+<span class="fc" id="L41">        Iterator&lt;Trooper&gt; iterator = troopers.iterator();</span>
 
-<span class="fc bfc" id="L40" title="All 2 branches covered.">        while (iterator.hasNext()) {</span>
-<span class="fc" id="L41">            Trooper trooper = iterator.next();</span>
-<span class="fc" id="L42">            Thread.sleep(trooper.getTrainingTime() * 1000L);</span>
-<span class="fc bfc" id="L43" title="All 2 branches covered.">            System.out.println(&quot;Trained One &quot; + (trooper instanceof Archer ? &quot;Archer&quot; : &quot;Barbarian&quot;));</span>
-<span class="fc" id="L44">            armyCampService.addTroopToCamp(trooper);</span>
-<span class="fc" id="L45">            iterator.remove();</span>
-<span class="fc" id="L46">        }</span>
-<span class="fc" id="L47">    }</span>
+<span class="fc bfc" id="L43" title="All 2 branches covered.">        while (iterator.hasNext()) {</span>
+<span class="fc" id="L44">            Trooper trooper = iterator.next();</span>
+<span class="fc" id="L45">            Thread.sleep(trooper.getTrainingTime() * 1000L);</span>
+<span class="fc bfc" id="L46" title="All 2 branches covered.">            System.out.println(&quot;Trained One &quot; + (trooper instanceof Archer ? &quot;Archer&quot; : &quot;Barbarian&quot;));</span>
+<span class="fc" id="L47">            armyCampService.addTroopToCamp(trooper);</span>
+<span class="fc" id="L48">            iterator.remove();</span>
+<span class="fc" id="L49">        }</span>
+<span class="fc" id="L50">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

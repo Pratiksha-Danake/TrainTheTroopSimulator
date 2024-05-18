@@ -24,11 +24,7 @@ public class BarracksController {
         }
     }
 
-    public void trainTheTroop() {
-        try {
-            barracksService.trainTheTroop();
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
+    public void trainTheTroop() throws InterruptedException {
+        barracksService.trainTheTroop();
     }
 }

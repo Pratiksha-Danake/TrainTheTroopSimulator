@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.amaap.trainthetroop.service.ArmyCampServiceTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-05-18T08:06:34" hostname="DESKTOP-GUO1275" time="0.836">
-  <properties/>
-  <testcase name="shouldBeAbleToAddTrooperToArmyCamp()" classname="com.amaap.trainthetroop.service.ArmyCampServiceTest" time="0.836"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>

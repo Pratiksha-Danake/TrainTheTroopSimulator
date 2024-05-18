@@ -1,5 +1,6 @@
 package com.amaap.trainthetroop.service;
 
+import com.amaap.trainthetroop.domain.model.entity.Troop;
 import com.amaap.trainthetroop.domain.model.entity.Trooper;
 import com.amaap.trainthetroop.repository.ArmyCampRepository;
 import com.google.inject.Inject;
@@ -23,4 +24,7 @@ public class ArmyCampService {
         return armyCampRepository.getTroopers();
     }
 
+    public int getCountOfTrooper(Troop troop) {
+        return armyCampRepository.getCountOfTrooper(troop);
+    }
 }

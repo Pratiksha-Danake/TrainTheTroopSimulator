@@ -7,24 +7,23 @@ import com.amaap.trainthetroop.domain.model.entity.exception.InvalidTrainingCost
 import com.amaap.trainthetroop.domain.model.entity.exception.InvalidTrainingTimeException;
 import com.amaap.trainthetroop.domain.model.entity.exception.InvalidTrooperWeaponException;
 import com.amaap.trainthetroop.service.TrooperService;
-import com.amaap.trainthetroop.service.exception.InvalidTroopTypeException;
 import com.google.inject.Inject;
 
 public class TrooperController {
     private final TrooperService trooperService;
 
     @Inject
-<span class="fc" id="L17">    public TrooperController(TrooperService trooperService) {</span>
-<span class="fc" id="L18">        this.trooperService = trooperService;</span>
-<span class="fc" id="L19">    }</span>
+<span class="fc" id="L16">    public TrooperController(TrooperService trooperService) {</span>
+<span class="fc" id="L17">        this.trooperService = trooperService;</span>
+<span class="fc" id="L18">    }</span>
 
     public Response createTrooper(Troop type, int trainingTime, int trainingCost, String weapon) {
         try {
-<span class="fc" id="L23">            trooperService.createTrooper(type, trainingTime, trainingCost, weapon);</span>
-<span class="fc" id="L24">            return new Response(HttpStatus.OK, &quot;CREATED&quot;);</span>
-<span class="fc" id="L25">        } catch (InvalidTroopTypeException | InvalidTrainingTimeException | InvalidTrainingCostException |</span>
+<span class="fc" id="L22">            trooperService.createTrooper(type, trainingTime, trainingCost, weapon);</span>
+<span class="fc" id="L23">            return new Response(HttpStatus.OK, &quot;CREATED&quot;);</span>
+<span class="fc" id="L24">        } catch (InvalidTrainingTimeException | InvalidTrainingCostException |</span>
                  InvalidTrooperWeaponException e) {
-<span class="fc" id="L27">            return new Response(HttpStatus.BAD_REQUEST, &quot;Invalid Data&quot;);</span>
+<span class="fc" id="L26">            return new Response(HttpStatus.BAD_REQUEST, &quot;Invalid Data&quot;);</span>
         }
     }
 }

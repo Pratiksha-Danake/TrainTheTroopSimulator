@@ -1,5 +1,6 @@
 package com.amaap.trainthetroop.repository.db;
 
+import com.amaap.trainthetroop.domain.model.entity.Troop;
 import com.amaap.trainthetroop.domain.model.entity.Trooper;
 
 import java.util.List;
@@ -18,4 +19,5 @@ public interface InMemoryDatabase {
 
     List<Trooper> getTroopersFromCamp();
 
+    int getCountOfTrooper(Troop troop);
 }

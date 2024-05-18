@@ -2,6 +2,7 @@ package com.amaap.trainthetroop.repository.db.impl;
 
 import com.amaap.trainthetroop.domain.model.entity.Archer;
 import com.amaap.trainthetroop.domain.model.entity.Barbarian;
+import com.amaap.trainthetroop.domain.model.entity.Troop;
 import com.amaap.trainthetroop.domain.model.entity.Trooper;
 import com.amaap.trainthetroop.repository.db.InMemoryDatabase;
 
@@ -62,5 +63,18 @@ public class FakeInMemoryDatabase implements InMemoryDatabase {
     @Override
     public List<Trooper> getTroopersFromCamp() {
         return armyCampTroopers;
+    }
+
+    @Override
+    public int getCountOfTrooper(Troop troop) {
+        int archerCount = 0;
+        int barbarianCount = 0;
+        for (Trooper trooper : armyCampTroopers) {
+            if (trooper instanceof Archer)
+                archerCount++;
+            else if(trooper instanceof Barbarian)
+                barbarianCount++;
+        }
+        return troop ==Troop.ARCHER ? archerCount : barbarianCount;
     }
 }

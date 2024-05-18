@@ -26,9 +26,8 @@ public class TrooperService {
 
         if (type.equals(Troop.ARCHER))
             trooperToAdd = new Archer(trainingTime, trainingCost, weapon);
-        else if (type.equals(Troop.BARBARIAN)) {
+        if (type.equals(Troop.BARBARIAN))
             trooperToAdd = new Barbarian(trainingTime, trainingCost, weapon);
-        }
         return trooperRepository.addTrooper(trooperToAdd);
     }
 

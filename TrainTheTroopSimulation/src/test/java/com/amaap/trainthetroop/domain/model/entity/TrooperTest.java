@@ -5,8 +5,7 @@ import com.amaap.trainthetroop.domain.model.entity.exception.InvalidTrainingTime
 import com.amaap.trainthetroop.domain.model.entity.exception.InvalidTrooperWeaponException;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class TrooperTest {
     @Test
@@ -89,5 +88,107 @@ public class TrooperTest {
         assertThrows(InvalidTrooperWeaponException.class, () -> {
             Trooper trooper = new Archer(trainingTime, trainingCost, weapon);
         });
+    }
+
+    @Test
+    public void shouldBeAbleToTestEqualityOfSameObject() throws InvalidTrainingTimeException, InvalidTrainingCostException, InvalidTrooperWeaponException {
+        // arrange && act
+        Trooper trooper = new Trooper(10, 100, "Rifle");
+        String notATrooper = "Not a Trooper";
+
+        // assert
+        assertFalse(trooper.equals(null));
+        assertFalse(trooper.equals(notATrooper));
+        assertTrue(trooper.equals(trooper));
+    }
+
+    @Test
+    public void shouldBeAbleToTestEqualObjects() throws InvalidTrainingTimeException, InvalidTrainingCostException, InvalidTrooperWeaponException {
+        // arrange && act
+        Trooper trooper1 = new Trooper(10, 100, "Rifle");
+        Trooper trooper2 = new Trooper(10, 100, "Rifle");
+
+        // assert
+        assertEquals(trooper1, trooper2);
+    }
+
+    @Test
+    public void shouldBeAbleToTestEqualityWhenTrooperHasDifferentTrainingTime() throws InvalidTrainingTimeException, InvalidTrainingCostException, InvalidTrooperWeaponException {
+        // arrange && act
+        Trooper trooper1 = new Trooper(10, 100, "Rifle");
+        Trooper trooper2 = new Trooper(20, 100, "Rifle");
+
+        // assert
+        assertNotEquals(trooper1, trooper2);
+    }
+
+    @Test
+    public void shouldBeAbleToTestEqualityWhenTrooperHasDifferentTrainingCost() throws InvalidTrainingTimeException, InvalidTrainingCostException, InvalidTrooperWeaponException {
+        // arrange && act
+        Trooper trooper1 = new Trooper(10, 100, "Rifle");
+        Trooper trooper2 = new Trooper(10, 200, "Rifle");
+
+        // assert
+        assertNotEquals(trooper1, trooper2);
+    }
+
+    @Test
+    public void shouldBeAbleToTestEqualityWhenTrooperHasDifferentWeapon() throws InvalidTrainingTimeException, InvalidTrainingCostException, InvalidTrooperWeaponException {
+        // arrange && act
+        Trooper trooper1 = new Trooper(10, 100, "Rifle");
+        Trooper trooper2 = new Trooper(10, 100, "Pistol");
+
+        // assert
+        assertNotEquals(trooper1, trooper2);
+    }
+
+    @Test
+    public void shouldBeAbleToTestEqualityWhenTrooperHasAllDifferentData() throws InvalidTrainingTimeException, InvalidTrainingCostException, InvalidTrooperWeaponException {
+        // arrange && act
+        Trooper trooper1 = new Trooper(10, 100, "Rifle");
+        Trooper trooper2 = new Trooper(20, 200, "Pistol");
+
+        // assert
+        assertNotEquals(trooper1, trooper2);
+    }
+
+    @Test
+    public void shouldBeAbleToTestEqualityWhenTrooperHasWeaponNull() throws InvalidTrainingTimeException, InvalidTrainingCostException, InvalidTrooperWeaponException {
+        // arrange && act
+        Trooper trooper1 = new Trooper(10, 100, "null");
+        Trooper trooper2 = new Trooper(10, 100, "Rifle");
+
+        // assert
+        assertNotEquals(trooper1, trooper2);
+    }
+
+    @Test
+    public void shouldBeAbleToTestEqualityWhenTrooperHasBothWeaponsNull() throws InvalidTrainingTimeException, InvalidTrainingCostException, InvalidTrooperWeaponException {
+        // arrange && act
+        Trooper trooper1 = new Trooper(10, 100, "null");
+        Trooper trooper2 = new Trooper(10, 100, "null");
+
+        // assert
+        assertEquals(trooper1, trooper2);
+    }
+
+    @Test
+    public void shouldBeAbleToTestEqualityWhenTrooperHasWeaponAndOtherFieldsDifferent() throws InvalidTrainingTimeException, InvalidTrainingCostException, InvalidTrooperWeaponException {
+        // arrange && act
+        Trooper trooper1 = new Trooper(10, 100, "null");
+        Trooper trooper2 = new Trooper(20, 200, "Rifle");
+
+        // assert
+        assertNotEquals(trooper1, trooper2);
+    }
+
+    @Test
+    void shouldBeAbleToReturnHashCode() throws InvalidTrainingTimeException, InvalidTrainingCostException, InvalidTrooperWeaponException {
+        // arrange
+        Trooper trooper1 = new Trooper(10, 100, "null");
+        Trooper trooper2 = new Trooper(20, 200, "Rifle");
+
+        // act && assert
+        assertNotEquals(trooper1.hashCode(), trooper2.hashCode());
     }
 }

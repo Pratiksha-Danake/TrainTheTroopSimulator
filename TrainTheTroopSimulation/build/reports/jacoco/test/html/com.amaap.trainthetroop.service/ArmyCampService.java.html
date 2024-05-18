@@ -7,7 +7,7 @@ import com.google.inject.Inject;
 import java.util.List;
 
 public class ArmyCampService {
-    private ArmyCampRepository armyCampRepository;
+    private final ArmyCampRepository armyCampRepository;
 
     @Inject
 <span class="fc" id="L13">    public ArmyCampService(ArmyCampRepository armyCampRepository) {</span>
@@ -22,5 +22,6 @@ public class ArmyCampService {
     public List&lt;Trooper&gt; getTroopers() {
 <span class="fc" id="L23">        return armyCampRepository.getTroopers();</span>
     }
+
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

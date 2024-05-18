@@ -3,8 +3,7 @@ package com.amaap.trainthetroop.controller.dto;
 import com.amaap.trainthetroop.controller.valueobject.HttpStatus;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 class ResponseTest {
     @Test
@@ -13,13 +12,18 @@ class ResponseTest {
         Response response1 = new Response(HttpStatus.OK, "Success");
         Response response2 = new Response(HttpStatus.OK, "Success");
         Response response3 = new Response(HttpStatus.BAD_REQUEST, "Error");
+        Response response4 = new Response(HttpStatus.OK, "Error");
+        Response response5 = new Response(HttpStatus.BAD_REQUEST, "Success");
+
 
         // assert
-        assertEquals(response1, response2);
-        assertEquals(response1, response1);
-        assertNotEquals(response1, response3);
-        assertNotEquals(response1, null);
-        assertNotEquals(response1, "String");
+        assertTrue(response1.equals(response2));
+        assertTrue(response1.equals(response1));
+        assertFalse(response1.equals(response3));
+        assertFalse(response1.equals(null));
+        assertFalse(response1.equals(new String("string")));
+        assertFalse(response1.equals(response4));
+        assertFalse(response1.equals(response5));
     }
 
     @Test
