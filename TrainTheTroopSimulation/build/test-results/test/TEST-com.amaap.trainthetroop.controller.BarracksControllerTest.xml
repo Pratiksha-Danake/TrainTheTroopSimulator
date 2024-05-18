@@ -1,7 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.amaap.trainthetroop.controller.BarracksControllerTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-05-18T07:47:46" hostname="DESKTOP-GUO1275" time="0.632">
+<testsuite name="com.amaap.trainthetroop.controller.BarracksControllerTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-05-18T07:55:12" hostname="DESKTOP-GUO1275" time="45.798">
   <properties/>
-  <testcase name="shouldGetResponseAsOkIfAddsTrooperSuccessfullyToTheBarracks()" classname="com.amaap.trainthetroop.controller.BarracksControllerTest" time="0.632"/>
-  <system-out><![CDATA[]]></system-out>
+  <testcase name="shouldBeAbleToTrainSingleTroopAtATime()" classname="com.amaap.trainthetroop.controller.BarracksControllerTest" time="45.798"/>
+  <system-out><![CDATA[Trained One Archer
+Trained One Barbarian
+Trained One Archer
+Trained One Barbarian
+Trained One Archer
+Trained One Barbarian
+Trained One Archer
+Trained One Barbarian
+Trained One Archer
+Trained One Barbarian
+]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

@@ -7,7 +7,7 @@ import com.google.inject.Inject;
 import java.util.List;
 
 public class ArmyCampService {
-    private ArmyCampRepository armyCampRepository;
+    private final ArmyCampRepository armyCampRepository;
 
     @Inject
     public ArmyCampService(ArmyCampRepository armyCampRepository) {

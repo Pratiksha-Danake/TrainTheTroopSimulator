@@ -7,7 +7,7 @@ import com.amaap.trainthetroop.domain.service.exception.TrooperLimitExceededExce
 import com.google.inject.Inject;
 
 public class BarracksController {
-    private BarracksService barracksService;
+    private final BarracksService barracksService;
 
     @Inject
     public BarracksController(BarracksService barracksService) {
@@ -20,7 +20,15 @@ public class BarracksController {
             return new Response(HttpStatus.OK, "Added");
 
         } catch (TrooperLimitExceededException e) {
-            return new Response(HttpStatus.BAD_REQUEST, "Added");
+            return new Response(HttpStatus.BAD_REQUEST, "Invalid Trooper Count");
+        }
+    }
+
+    public void trainTheTroop() {
+        try {
+            barracksService.trainTheTroop();
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
         }
     }
 }
