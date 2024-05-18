@@ -1,16 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.amaap.trainthetroop.domain.service.BarracksServiceTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-05-18T05:25:41" hostname="DESKTOP-GUO1275" time="45.599">
+<testsuite name="com.amaap.trainthetroop.domain.service.BarracksServiceTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-05-18T05:53:15" hostname="DESKTOP-GUO1275" time="9.319">
   <properties/>
-  <testcase name="shouldBeAbleToTrainSingleTroopAtATime()" classname="com.amaap.trainthetroop.domain.service.BarracksServiceTest" time="45.599"/>
+  <testcase name="shouldBeAbleToAddTheTrainedTroopersToArmyCamp()" classname="com.amaap.trainthetroop.domain.service.BarracksServiceTest" time="9.319"/>
   <system-out><![CDATA[Trained One Archer
-Trained One Barbarian
-Trained One Archer
-Trained One Barbarian
-Trained One Archer
-Trained One Barbarian
-Trained One Archer
-Trained One Barbarian
-Trained One Archer
 Trained One Barbarian
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>

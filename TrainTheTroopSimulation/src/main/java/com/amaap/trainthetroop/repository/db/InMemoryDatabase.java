@@ -14,4 +14,8 @@ public interface InMemoryDatabase {
 
     Queue<Trooper> getTroopersFromBarracks();
 
+    String addToCamp(Trooper trooper);
+
+    List<Trooper> getTroopersFromCamp();
+
 }

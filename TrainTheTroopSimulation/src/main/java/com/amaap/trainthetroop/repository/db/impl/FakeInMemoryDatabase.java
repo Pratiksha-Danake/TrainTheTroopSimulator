@@ -13,6 +13,7 @@ import java.util.Queue;
 public class FakeInMemoryDatabase implements InMemoryDatabase {
     private final List<Trooper> troopers = new ArrayList<>();
     private final Queue<Trooper> barracks = new LinkedList<>();
+    private final List<Trooper> armyCampTroopers = new ArrayList<>();
 
     @Override
     public Trooper addTrooper(Trooper trooper) {
@@ -50,5 +51,16 @@ public class FakeInMemoryDatabase implements InMemoryDatabase {
     @Override
     public Queue<Trooper> getTroopersFromBarracks() {
         return barracks;
+    }
+
+    @Override
+    public String addToCamp(Trooper trooper) {
+        armyCampTroopers.add(trooper);
+        return "Added Trooper To Army Camp";
+    }
+
+    @Override
+    public List<Trooper> getTroopersFromCamp() {
+        return armyCampTroopers;
     }
 }
