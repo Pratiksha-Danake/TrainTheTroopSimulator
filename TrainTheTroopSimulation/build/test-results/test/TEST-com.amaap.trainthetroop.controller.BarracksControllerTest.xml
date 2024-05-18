@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.amaap.trainthetroop.controller.BarracksControllerTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-05-18T07:47:46" hostname="DESKTOP-GUO1275" time="0.632">
+  <properties/>
+  <testcase name="shouldGetResponseAsOkIfAddsTrooperSuccessfullyToTheBarracks()" classname="com.amaap.trainthetroop.controller.BarracksControllerTest" time="0.632"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
