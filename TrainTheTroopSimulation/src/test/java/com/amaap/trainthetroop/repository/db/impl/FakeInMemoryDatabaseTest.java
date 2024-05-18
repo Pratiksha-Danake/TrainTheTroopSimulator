@@ -3,6 +3,7 @@ package com.amaap.trainthetroop.repository.db.impl;
 import com.amaap.trainthetroop.AppModule;
 import com.amaap.trainthetroop.domain.model.entity.Archer;
 import com.amaap.trainthetroop.domain.model.entity.Barbarian;
+import com.amaap.trainthetroop.domain.model.entity.Troop;
 import com.amaap.trainthetroop.domain.model.entity.Trooper;
 import com.amaap.trainthetroop.domain.model.entity.exception.InvalidTrainingCostException;
 import com.amaap.trainthetroop.domain.model.entity.exception.InvalidTrainingTimeException;
@@ -26,7 +27,7 @@ class FakeInMemoryDatabaseTest {
     }
 
     @Test
-    void shouldBeAbleToAddTrooperTODatabase() throws InvalidTrainingTimeException, InvalidTrainingCostException, InvalidTrooperWeaponException {
+    void shouldBeAbleToAddTrooperToDatabase() throws InvalidTrainingTimeException, InvalidTrainingCostException, InvalidTrooperWeaponException {
         // arrange
         int trainingTime = 6;
         int trainingCost = 20;
@@ -55,5 +56,49 @@ class FakeInMemoryDatabaseTest {
 
         // assert
         assertEquals(10, troopers.size());
+    }
+
+    @Test
+    void shouldBeAbleToAddTroopersToBarracks() throws InvalidTrainingTimeException, InvalidTrainingCostException, InvalidTrooperWeaponException {
+        // arrange
+        Trooper trooper1 = new Archer(6, 20, "Bow ANd Arrow");
+        Trooper trooper2 = new Barbarian(3, 10, "Sword");
+
+        // act
+        fakeInMemoryDatabase.addTroopersToBarrack(List.of(trooper1, trooper2));
+
+        // assert
+        assertEquals(2, fakeInMemoryDatabase.getTroopersFromBarracks().size());
+    }
+
+    @Test
+    void shouldBeAbleToAddTrooperToArmyCamp() throws InvalidTrainingTimeException, InvalidTrainingCostException, InvalidTrooperWeaponException {
+        // arrange
+        Trooper trooper1 = new Archer(6, 20, "Bow ANd Arrow");
+        Trooper trooper2 = new Barbarian(3, 10, "Sword");
+        int expectedTrooperInArmyCamp = 2;
+
+        // act
+        fakeInMemoryDatabase.addToCamp(trooper1);
+        fakeInMemoryDatabase.addToCamp(trooper2);
+
+        // assert
+        assertEquals(expectedTrooperInArmyCamp, fakeInMemoryDatabase.getTroopersFromCamp().size());
+    }
+
+    @Test
+    void shouldBeAbleToGetCountOfSpecificTypeOfTrooper() throws InvalidTrainingTimeException, InvalidTrainingCostException, InvalidTrooperWeaponException {
+        // arrange
+        Trooper trooper1 = new Archer(6, 20, "Bow ANd Arrow");
+        Trooper trooper2 = new Barbarian(3, 10, "Sword");
+        int expectedTrooperInArmyCamp = 2;
+
+        // act
+        fakeInMemoryDatabase.addToCamp(trooper1);
+        fakeInMemoryDatabase.addToCamp(trooper2);
+
+        // assert
+        assertEquals(1, fakeInMemoryDatabase.getCountOfTrooper(Troop.ARCHER));
+        assertEquals(1, fakeInMemoryDatabase.getCountOfTrooper(Troop.BARBARIAN));
     }
 }
