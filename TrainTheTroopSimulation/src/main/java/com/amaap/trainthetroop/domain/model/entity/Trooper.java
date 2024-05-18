@@ -6,7 +6,7 @@ import com.amaap.trainthetroop.domain.model.entity.exception.InvalidTrooperWeapo
 
 import java.util.Objects;
 
-import static com.amaap.trainthetroop.domain.model.entity.TroopDataValidator.*;
+import static com.amaap.trainthetroop.domain.model.entity.validator.TroopDataValidator.*;
 
 public class Trooper {
     int trainingTime;

@@ -1,6 +1,6 @@
 package com.amaap.trainthetroop.repository.impl;
 
-import com.amaap.trainthetroop.domain.model.entity.Troop;
+import com.amaap.trainthetroop.domain.model.valueobject.Troop;
 import com.amaap.trainthetroop.domain.model.entity.Trooper;
 import com.amaap.trainthetroop.repository.ArmyCampRepository;
 import com.amaap.trainthetroop.repository.db.InMemoryDatabase;

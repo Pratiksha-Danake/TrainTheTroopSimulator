@@ -3,7 +3,7 @@ package com.amaap.trainthetroop.controller;
 import com.amaap.trainthetroop.AppModule;
 import com.amaap.trainthetroop.controller.dto.Response;
 import com.amaap.trainthetroop.controller.valueobject.HttpStatus;
-import com.amaap.trainthetroop.domain.model.entity.Troop;
+import com.amaap.trainthetroop.domain.model.valueobject.Troop;
 import com.amaap.trainthetroop.domain.model.entity.Trooper;
 import com.amaap.trainthetroop.domain.model.entity.exception.InvalidTrainingCostException;
 import com.amaap.trainthetroop.domain.model.entity.exception.InvalidTrainingTimeException;

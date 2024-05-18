@@ -17,13 +17,13 @@ class ResponseTest {
 
 
         // assert
-        assertTrue(response1.equals(response2));
-        assertTrue(response1.equals(response1));
-        assertFalse(response1.equals(response3));
-        assertFalse(response1.equals(null));
-        assertFalse(response1.equals(new String("string")));
-        assertFalse(response1.equals(response4));
-        assertFalse(response1.equals(response5));
+        assertEquals(response1, response2);
+        assertEquals(response1, response1);
+        assertNotEquals(response1, response3);
+        assertNotEquals(null, response1);
+        assertNotEquals("string", response1);
+        assertNotEquals(response1, response4);
+        assertNotEquals(response1, response5);
     }
 
     @Test

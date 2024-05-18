@@ -97,9 +97,9 @@ public class TrooperTest {
         String notATrooper = "Not a Trooper";
 
         // assert
-        assertFalse(trooper.equals(null));
-        assertFalse(trooper.equals(notATrooper));
-        assertTrue(trooper.equals(trooper));
+        assertNotEquals(null, trooper);
+        assertNotEquals(trooper, notATrooper);
+        assertEquals(trooper, trooper);
     }
 
     @Test
