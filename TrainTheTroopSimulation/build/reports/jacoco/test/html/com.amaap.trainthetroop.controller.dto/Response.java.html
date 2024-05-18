@@ -18,7 +18,7 @@ public class Response {
 <span class="fc bfc" id="L18" title="All 2 branches covered.">        if (this == o) return true;</span>
 <span class="fc bfc" id="L19" title="All 4 branches covered.">        if (o == null || getClass() != o.getClass()) return false;</span>
 <span class="fc" id="L20">        Response response = (Response) o;</span>
-<span class="pc bpc" id="L21" title="1 of 4 branches missed.">        return httpStatus == response.httpStatus &amp;&amp; Objects.equals(message, response.message);</span>
+<span class="fc bfc" id="L21" title="All 4 branches covered.">        return httpStatus == response.httpStatus &amp;&amp; Objects.equals(message, response.message);</span>
     }
 
     @Override

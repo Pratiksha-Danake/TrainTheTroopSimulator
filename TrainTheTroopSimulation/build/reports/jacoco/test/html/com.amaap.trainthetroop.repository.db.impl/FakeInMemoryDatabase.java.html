@@ -2,6 +2,7 @@
 
 import com.amaap.trainthetroop.domain.model.entity.Archer;
 import com.amaap.trainthetroop.domain.model.entity.Barbarian;
+import com.amaap.trainthetroop.domain.model.entity.Troop;
 import com.amaap.trainthetroop.domain.model.entity.Trooper;
 import com.amaap.trainthetroop.repository.db.InMemoryDatabase;
 
@@ -10,58 +11,71 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 
-<span class="fc" id="L13">public class FakeInMemoryDatabase implements InMemoryDatabase {</span>
-<span class="fc" id="L14">    private final List&lt;Trooper&gt; troopers = new ArrayList&lt;&gt;();</span>
-<span class="fc" id="L15">    private final Queue&lt;Trooper&gt; barracks = new LinkedList&lt;&gt;();</span>
-<span class="fc" id="L16">    private final List&lt;Trooper&gt; armyCampTroopers = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L14">public class FakeInMemoryDatabase implements InMemoryDatabase {</span>
+<span class="fc" id="L15">    private final List&lt;Trooper&gt; troopers = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L16">    private final Queue&lt;Trooper&gt; barracks = new LinkedList&lt;&gt;();</span>
+<span class="fc" id="L17">    private final List&lt;Trooper&gt; armyCampTroopers = new ArrayList&lt;&gt;();</span>
 
     @Override
     public Trooper addTrooper(Trooper trooper) {
-<span class="fc" id="L20">        troopers.add(trooper);</span>
-<span class="fc" id="L21">        return trooper;</span>
+<span class="fc" id="L21">        troopers.add(trooper);</span>
+<span class="fc" id="L22">        return trooper;</span>
     }
 
     @Override
     public List&lt;Trooper&gt; getTroopersOfCount(int archerCount, int barbarianCount) {
-<span class="fc" id="L26">        int archer = 0;</span>
-<span class="fc" id="L27">        int barbarian = 0;</span>
-<span class="fc" id="L28">        List&lt;Trooper&gt; trooperToTrain = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L27">        int archer = 0;</span>
+<span class="fc" id="L28">        int barbarian = 0;</span>
+<span class="fc" id="L29">        List&lt;Trooper&gt; trooperToTrain = new ArrayList&lt;&gt;();</span>
 
-<span class="pc bpc" id="L30" title="1 of 2 branches missed.">        for (Trooper trooper : troopers) {</span>
-<span class="fc bfc" id="L31" title="All 4 branches covered.">            if (archer &lt; archerCount &amp;&amp; trooper instanceof Archer) {</span>
-<span class="fc" id="L32">                archer++;</span>
-<span class="fc" id="L33">                trooperToTrain.add(trooper);</span>
-<span class="pc bpc" id="L34" title="2 of 4 branches missed.">            } else if (barbarian &lt; barbarianCount &amp;&amp; trooper instanceof Barbarian) {</span>
-<span class="fc" id="L35">                barbarian++;</span>
-<span class="fc" id="L36">                trooperToTrain.add(trooper);</span>
+<span class="pc bpc" id="L31" title="1 of 2 branches missed.">        for (Trooper trooper : troopers) {</span>
+<span class="fc bfc" id="L32" title="All 4 branches covered.">            if (archer &lt; archerCount &amp;&amp; trooper instanceof Archer) {</span>
+<span class="fc" id="L33">                archer++;</span>
+<span class="fc" id="L34">                trooperToTrain.add(trooper);</span>
             }
-
-<span class="fc bfc" id="L39" title="All 4 branches covered.">            if (archer &gt;= archerCount &amp;&amp; barbarian &gt;= barbarianCount)</span>
-<span class="fc" id="L40">                break;</span>
-<span class="fc" id="L41">        }</span>
-<span class="fc" id="L42">        return trooperToTrain;</span>
+<span class="pc bpc" id="L36" title="1 of 4 branches missed.">            if (barbarian &lt; barbarianCount &amp;&amp; trooper instanceof Barbarian) {</span>
+<span class="fc" id="L37">                barbarian++;</span>
+<span class="fc" id="L38">                trooperToTrain.add(trooper);</span>
+            }
+<span class="fc bfc" id="L40" title="All 4 branches covered.">            if (archer &gt;= archerCount &amp;&amp; barbarian &gt;= barbarianCount)</span>
+<span class="fc" id="L41">                break;</span>
+<span class="fc" id="L42">        }</span>
+<span class="fc" id="L43">        return trooperToTrain;</span>
     }
 
     @Override
     public Queue&lt;Trooper&gt; addTroopersToBarrack(List&lt;Trooper&gt; troopers) {
-<span class="fc" id="L47">        barracks.addAll(troopers);</span>
-<span class="fc" id="L48">        return barracks;</span>
+<span class="fc" id="L48">        barracks.addAll(troopers);</span>
+<span class="fc" id="L49">        return barracks;</span>
     }
 
     @Override
     public Queue&lt;Trooper&gt; getTroopersFromBarracks() {
-<span class="fc" id="L53">        return barracks;</span>
+<span class="fc" id="L54">        return barracks;</span>
     }
 
     @Override
     public String addToCamp(Trooper trooper) {
-<span class="fc" id="L58">        armyCampTroopers.add(trooper);</span>
-<span class="fc" id="L59">        return &quot;Added Trooper To Army Camp&quot;;</span>
+<span class="fc" id="L59">        armyCampTroopers.add(trooper);</span>
+<span class="fc" id="L60">        return &quot;Added Trooper To Army Camp&quot;;</span>
     }
 
     @Override
     public List&lt;Trooper&gt; getTroopersFromCamp() {
-<span class="fc" id="L64">        return armyCampTroopers;</span>
+<span class="fc" id="L65">        return armyCampTroopers;</span>
+    }
+
+    @Override
+    public int getCountOfTrooper(Troop troop) {
+<span class="fc" id="L70">        int archerCount = 0;</span>
+<span class="fc" id="L71">        int barbarianCount = 0;</span>
+<span class="fc bfc" id="L72" title="All 2 branches covered.">        for (Trooper trooper : armyCampTroopers) {</span>
+<span class="fc bfc" id="L73" title="All 2 branches covered.">            if (trooper instanceof Archer)</span>
+<span class="fc" id="L74">                archerCount++;</span>
+<span class="fc bfc" id="L75" title="All 2 branches covered.">            if (trooper instanceof Barbarian)</span>
+<span class="fc" id="L76">                barbarianCount++;</span>
+<span class="fc" id="L77">        }</span>
+<span class="fc bfc" id="L78" title="All 2 branches covered.">        return troop == Troop.ARCHER ? archerCount : barbarianCount;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

@@ -32,11 +32,11 @@ public class FakeInMemoryDatabase implements InMemoryDatabase {
             if (archer < archerCount && trooper instanceof Archer) {
                 archer++;
                 trooperToTrain.add(trooper);
-            } else if (barbarian < barbarianCount && trooper instanceof Barbarian) {
+            }
+            if (barbarian < barbarianCount && trooper instanceof Barbarian) {
                 barbarian++;
                 trooperToTrain.add(trooper);
             }
-
             if (archer >= archerCount && barbarian >= barbarianCount)
                 break;
         }
@@ -72,9 +72,9 @@ public class FakeInMemoryDatabase implements InMemoryDatabase {
         for (Trooper trooper : armyCampTroopers) {
             if (trooper instanceof Archer)
                 archerCount++;
-            else if(trooper instanceof Barbarian)
+            if (trooper instanceof Barbarian)
                 barbarianCount++;
         }
-        return troop ==Troop.ARCHER ? archerCount : barbarianCount;
+        return troop == Troop.ARCHER ? archerCount : barbarianCount;
     }
 }
